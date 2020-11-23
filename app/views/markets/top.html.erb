@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="content">
+        <!-- 商品一覧エリア -->
+        <div class="main list">
+        <% if @products.any? %>
+            <ul type="none" >
+            <% @products.each do |product| %>
+                <li>
+                    <%= link_to markets_show_path(product.id) do %>
+                    <div class="image">
+                        <%= image_tag image1_url(product) %>
+                        <% if product_sold?(product) %>
+                        <div class="sold_icon">SOLD</div>
+                        <% end %>
+                    </div>
+                    <% end %>
+                    <p class="name"><%= product.name %></P>
+                    <div class="price"><%= number_to_currency(product.price, unit: "¥", format: "%u%n", strip_insignificant_zeros: true) %>
+                    <% if current_user.present? %>
+                        <%= link_to markets_like_path(product.id) do %> 
+                        <div class="like<%= product.like_from?(current_user)? "": " no" %>">★</div>
+                        <% end %>
+                    <% end %>
+                    </div>
+                </li>
+            <% end %>
+            </ul>
+            <div class="paginate"><%= paginate @products %></div>
+        <% else %>
+            対象の商品は見つかりませんでした。
+        <% end %>
+        </div>
+        <!-- 詳細検索エリア -->
+        <%= render partial: 'markets/search_area' %>
+    </div>
+</div>

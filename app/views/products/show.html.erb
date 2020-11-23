@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="content">
+        <!-- ユーザー商品詳細エリア -->
+        <div class="main products_show">
+            <div class="status">
+                <%= @product.status_i18n %>
+            </div>
+            <h2><%= @product.name %></h2>
+            <div class="images">
+                <div class="image">
+                    <%= image_tag image1_url(@product) %>
+                </div>
+                <% if @product.image2.present? %>
+                <div class="image">
+                    <%= image_tag image2_url(@product) %>
+                </div>
+                <% end %>
+                <% if @product.image3.present? %>
+                <div class="image">
+                    <%= image_tag image3_url(@product) %>
+                </div>
+                <% end %>
+            </div>
+            <p>カテゴリー： <%= @product.category.name %></p>
+            <p class="price"><%= number_to_currency(@product.price, unit: "¥", format: "%u%n", strip_insignificant_zeros: true) %></p>
+            <p>販売手数料（10％）<%= number_to_currency(calc_fee(@product), unit: "¥", format: "%u%n", strip_insignificant_zeros: true) %></p>
+            <p>販売利益 <%= number_to_currency(calc_profit(@product), unit: "¥", format: "%u%n", strip_insignificant_zeros: true) %></p>
+            <%= link_to '編集する', products_edit_path, class: 'link edit' %>
+            <p><%= @product.description %></p>
+            <%= link_to '削除する', products_delete_path, method: :post, class: 'delete' %>
+        </div>
+        <!-- マイページエリア -->
+        <%= render partial: 'users/mypage' %>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+//ユーザー商品詳細
+.products_show {
+    .status {
+        width: 643px;
+        height: 35px;
+        border: solid 1px;
+        font-size: 15px;
+        text-align: center;
+        margin: 10px auto 0 auto;
+        padding-top: 10px;
+    }
+    .edit {
+        background-color: #ffa500;
+    }
+    .delete {
+        color: #808080;
+        display: block;
+        margin: 20px 0 0 0;
+        text-decoration: none;
+        font-size: 15px;
+    }
+}
+//ユーザー商品編集ページ
+.products_edit {
+    img {
+      width: 200px;
+      height: 200px;
+    }
+}

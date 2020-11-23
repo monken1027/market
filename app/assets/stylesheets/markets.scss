@@ -1,0 +1,57 @@
+//詳細検索
+.search_area {
+    width: 220px;
+    height: 400px;
+    float: left;
+    background-color: #ffffff;
+    margin: 0 20px;
+    padding: 15px;
+    h2 {
+        margin: 0 0 10px 0;
+    }
+    p {
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+    input[type="text"]  {
+        width: 200px;
+        border: solid 1px #dbdbdb;
+        color: #262626;
+        font-size: 14px;
+        outline: none;
+        height: 30px;
+        display: inline-block;
+        padding-left: 5px;
+    }
+    #add_keyword {
+        width: 205px;
+    }
+    .price {
+        display: flex;
+        span {
+            height: 35px;
+            padding: 5px 2px 0 2px;
+        }
+        input[type="text"] {
+            width: 85px;
+        }
+    }
+    select {
+        border: solid 1px #dbdbdb;
+        display: inline-block;
+        width: 210px;
+        height: 40px;
+    }
+    input[type="submit"] {
+        color: #ffffff;
+        background-color: #ffa500;
+        width: 210px;
+        height: 40px;
+        display: inline-block;
+        margin: 20px 0 0 0;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+}

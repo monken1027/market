@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="content">
+        <!-- サインインエリア -->
+        <div class="main sign_in">
+            <%= form_for @user, url: sign_in_path do |f| %>
+            <p>メールアドレス</p>
+            <%= f.email_field :email, placeholder: 'haruka@codecamp.jp'  %>
+            <p>パスワード</p>
+            <%= f.password_field :password, placeholder: '8文字以上の英数字' %>
+            <%= f.submit 'サインインする' %>
+            <% end %>
+            <%= link_to '新規登録はこちら', sign_up_path %>
+        </div>
+        <!-- 詳細検索エリア -->
+        <%= render partial: 'markets/search_area' %>
+    </div>
+</div>

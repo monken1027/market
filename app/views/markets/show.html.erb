@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="content">
+        <!-- 商品詳細エリア -->
+        <div class="main">
+            <h2><%= @product.name %></h2>
+            <div class="images">
+                <div class="image">
+                    <%= image_tag image1_url(@product) %>
+                </div>
+                <% if @product.image2.present? %>
+                <div class="image">
+                    <%= image_tag image2_url(@product) %>
+                </div>
+                <% end %>
+                <% if @product.image3.present? %>
+                <div class="image">
+                    <%= image_tag image3_url(@product) %>
+                </div>
+                <% end %>
+            </div>
+            <p>カテゴリー： <%= @product.category.name %></p>
+            <p class="price"><%= number_to_currency(@product.price, unit: "¥", format: "%u%n", strip_insignificant_zeros: true) %></p>
+            <% if !product_sold?(@product) %>
+            <%= link_to '購入する', markets_payment_path, class: 'link payment' %>
+            <% end %>
+            <p><%= @product.description %></p>
+        </div>
+        <!-- 詳細検索エリア -->
+        <%= render partial: 'markets/search_area' %>
+    </div>
+</div>

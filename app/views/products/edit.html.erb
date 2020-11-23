@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="content">
+        <!-- ユーザー商品編集エリア -->
+        <div class="main products_edit">
+            <%= form_for @product, url: products_update_path, method: :post do |f| %>
+            <p>商品名</p>
+            <%= f.text_field :name %>
+            <p>説明</p>
+            <%= f.text_area :description %>
+            <p>カテゴリー</p>
+            <%= f.collection_select :category_id, @categories, :id, :name%>
+            <p>価格</p>
+            <%= f.number_field :price, min: 1 %>
+            <div class="file"><span>画像1</span><%= f.file_field :image1 %><%= f.hidden_field :image1_cache %>
+                <% if @product.image1.present? %>
+                <div class="image">
+                    <%= image_tag image1_url(@product) %>
+                </div>
+                <% end %>
+            </div>
+            <div class="file"><span>画像2</span><%= f.file_field :image2 %><%= f.hidden_field :image2_cache %>
+                <% if @product.image2.present? %>
+                <div class="image">
+                    <%= image_tag image2_url(@product) %>
+                </div>
+                <% end %>
+            </div>
+            <div class="file"><span>画像3</span><%= f.file_field :image3 %><%= f.hidden_field :image3_cache %>
+                <% if @product.image3.present? %>
+                <div class="image">
+                    <%= image_tag image3_url(@product) %>
+                </div>
+                <% end %>
+            </div>    
+            <%= f.submit '送信する' %>
+            <% end %>
+        </div>
+        <!-- マイページエリア -->
+        <%= render partial: 'users/mypage' %>
+    </div>
+</div>

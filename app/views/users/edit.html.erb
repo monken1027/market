@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="content">
+        <!-- プロフィール編集エリア -->
+        <div class="main">
+            <%= form_for @user, url: profiles_update_path, method: :post do |f| %>
+            <div class="image">
+                <div style="background: url('<%= image_url(@user) %>'); background-position: 50%; background-size: cover"></div>
+            </div>
+            <p><span>画像</span><%= f.file_field :image %><%= f.hidden_field :image_cache %></p>
+            <p>ニックネーム</p>
+            <%= f.text_field :name %>
+            <p>プロフィール</p>
+            <%= f.text_area :profile %>
+            <p>パスワード</p>
+            <%= f.password_field :password, placeholder: 'パスワードを更新しない場合は入力しないでください' %>
+            <p>パスワード(確認)</p>
+            <%= f.password_field :password_confirmation, placeholder: '確認用' %>
+            <%= f.submit '送信する' %>
+            <% end %>
+        </div>
+        <!-- マイページエリア -->
+        <%= render partial: 'users/mypage' %>
+    </div>
+</div>

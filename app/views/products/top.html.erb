@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="content">
+        <!-- ユーザー商品一覧エリア -->
+        <div class="main list">
+        <% if @products.any? %>
+            <ul type="none" >
+                <% @products.each do |product| %>
+                <li>
+                    <%= link_to products_show_path(product.id) do %>
+                    <div class="image">
+                        <%= image_tag image1_url(product) %>
+                    </div>
+                    <% end %>
+                    <p class="name"><%= product.name %></p>
+                    <p class="price"><%= number_to_currency(product.price, unit: "¥", format: "%u%n", strip_insignificant_zeros: true) %></p>
+                </li>
+                <% end %>
+            </ul>
+            <div class="paginate"><%= paginate @products %></div>
+        <% else %>
+            出品中の商品はありません。
+        <% end %>
+        </div>
+        <!-- マイページエリア -->
+        <%= render partial: 'users/mypage' %>
+    </div>
+</div>

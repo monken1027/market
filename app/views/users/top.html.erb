@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="content">
+        <!-- プロフィールエリア -->
+        <div class="main top_page">
+            <div class="image">
+                <div style="background: url('<%= image_url(@user) %>'); background-position: 50%; background-size: cover"></div>
+            </div>
+            <div class="info">
+                <p class="name"><%= @user.name %>さん</p>
+                <p class="products_count">出品数：<%= @user.products.length %></p>
+            </div>
+            <div class="profile">
+                <%= @user.profile %>
+            </div>
+        </div>
+        <!-- マイページエリア -->
+        <%= render partial: 'users/mypage' %>
+    </div>
+</div>

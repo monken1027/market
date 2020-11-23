@@ -1,0 +1,18 @@
+<div class="search_area">
+    <h2>詳細検索</h2>
+    <%= form_with scope: :search, url: markets_path, method: :get, local: true do |f| %>
+    <p>キーワード追加</p>
+    <%= f.text_field :add_keyword, placeholder: '例) 値下げ' %>
+    <p>カテゴリー選択</p>
+    <%= f.collection_select :category_id, @categories, :id, :name, include_blank: true %>
+    <p>価格</p>
+    <div class="price">
+        <%= f.text_field :min_price, placeholder: '100' %>
+        <span>～</span>
+        <%= f.text_field :max_price, placeholder: '1000' %>
+    </div>
+    <p>並び替え</p>
+    <%= f.select :order, {'価格の高い順':'price desc', '価格の安い順':'price asc', '新しい順':'created_at desc', '古い順':'created_at asc'}, include_blank: true %>
+    <%= f.submit '検索' %>
+    <% end %>
+</div>

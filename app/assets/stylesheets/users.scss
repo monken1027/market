@@ -1,0 +1,51 @@
+//トップページ
+.top_page {
+    .info {
+        margin-top: 10px;
+        p {
+            margin: 0;
+        }
+        .products_count {
+            font-size: 15px;
+        }
+    }
+    .profile {
+        margin-top: 20px;
+    }
+}
+//サインインページ
+.sign_in {
+    a {
+        text-decoration: none;
+        display: block;
+        color: #808080;
+        width: 150px;
+        margin: 10px auto;
+        font-size: 15px;
+        text-align: center;
+    }
+}
+
+//マイページ
+.mypage_area {
+    width: 220px;
+    height: 250px;
+    float: left;
+    background-color: #ffffff;
+    margin: 0 20px;
+    padding: 15px;
+    h2 {
+        margin: 0 0 10px 0;
+    }
+    ul {
+        padding-left: 0;
+    }
+    li {
+        margin: 15px 0;
+    }
+    a {
+        text-decoration: none;
+        display: block;
+        color: #000000;
+    }
+}

@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="content">
+        <!-- 出品エリア -->
+        <div class="main">
+            <%= form_for @product, url: products_create_path do |f| %>
+            <p>商品名</p>
+            <%= f.text_field :name, placeholder: 'コードキャンプのTシャツ' %>
+            <p>説明</p>
+            <%= f.text_area :description, placeholder: 'コードキャンプで制作されたオリジナルTシャツです。' %>
+            <p>カテゴリー</p>
+            <%= f.collection_select :category_id, @categories, :id, :name, include_blank: true %>
+            <p>価格</p>
+            <%= f.number_field :price, placeholder: 0, min: 1 %>
+            <div class="file"><span>画像1</span><%= f.file_field :image1 %></div>
+            <div class="file"><span>画像2</span><%= f.file_field :image2 %></div>
+            <div class="file"><span>画像3</span><%= f.file_field :image3 %></div>
+            <%= f.submit '送信する' %>
+            <% end %>
+        </div>
+        <!-- マイページエリア -->
+        <%= render partial: 'users/mypage' %>
+    </div>
+</div>
